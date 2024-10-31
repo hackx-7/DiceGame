@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "babel-plugin-styled-components": "^2.1.4",
     "framer-motion": "^11.11.11",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -29,5 +30,8 @@
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.14",
     "vite": "^5.4.9"
+  },
+  "babel": {
+    "plugins": ["babel-plugin-styled-components"]
   }
 }

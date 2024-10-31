@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const NumSelector = ({setSelectedNum,selectedNum}) => {
+const NumSelector = ({ setSelectedNum, selectedNum }) => {
   const nums = [1, 2, 3, 4, 5, 6];
-  
+
   const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items:end;
+    align-items: end;
     gap: 2rem;
   `;
 
@@ -32,7 +32,6 @@ const NumSelector = ({setSelectedNum,selectedNum}) => {
     </>
   );
 };
-
 export default NumSelector;
 
 //for changing the color properties of the box when it is selected
@@ -41,4 +40,5 @@ const Box = styled.div`
   background-color: ${(props) => (props.isSelected ? "black" : "white")};
   color: ${(props) => (props.isSelected ? "white" : "black")};
   border-color: ${(props) => (props.isSelected ? "white" : "black")};
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 `;

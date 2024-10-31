@@ -5,12 +5,12 @@ const RollDice = ({ rollDice, currentDice }) => {
   const [isRolling, setIsRolling] = useState(false);
 
   const handleDiceClick = () => {
-    // Store the result of rollDice() to check if a number was selected
-    const wasRolled = rollDice();
-    
-    // Only set setIsRolling to true if rollDice() didn't return early
-    if (wasRolled !== undefined) {
+    if (!isRolling) {
+      rollDice();
       setIsRolling(true);
+      setTimeout(() => {
+        setIsRolling(false);
+      }, 500);
     }
   };
 
@@ -25,8 +25,8 @@ const RollDice = ({ rollDice, currentDice }) => {
             <motion.img
               src={"/blackdice4.png"}
               alt="dice_4"
-              className="h-[17.8rem] cursor-pointer "
-              animate={{ rotate: isRolling ? 360 : 0 }}
+              className="h-[17.8rem] cursor-pointer"
+              animate={isRolling ? { rotate: 360 } : { rotate: 0 }}
               transition={{ duration: 0.5, ease: "linear" }}
               onAnimationComplete={() => setIsRolling(false)}
             />
@@ -35,7 +35,7 @@ const RollDice = ({ rollDice, currentDice }) => {
               src={`/blackdice${currentDice}.png`}
               alt={`dice_${currentDice}`}
               className="w-[15rem] h-[15rem] bg-white rounded-[2.7rem] cursor-pointer"
-              animate={{ rotate: isRolling ? 360 : 0 }}
+              animate={isRolling ? { rotate: 360 } : { rotate: 0 }}
               transition={{ duration: 0.5, ease: "linear" }}
               onAnimationComplete={() => setIsRolling(false)}
             />
